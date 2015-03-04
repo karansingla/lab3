@@ -1,0 +1,52 @@
+- Introduction
+
+Linear Algebraic Equations is the fundamental of linear algebra, which is an important part of all engineering, physics, mathematics, computer science as well economic studies. The fact that a non-linear system of equations is often approximated by a linear system makes their study inevitable. 
+An attempt has been made to obtainin quick and accurate solutions with minimum errors through a program written in python. 
+
+The Gauss Elimation Method and The Gauss Siedel Method
+
+Out of the several methods to solve linear algebraic equations, two ways have been used in the program to solve the linear algebric equations. They are the Gauss elimation method and the Gauss Sidel Iterative method.
+
+In the Gauss elimination method, the Matrix containing the coefficients of the variables is triangularized and subsequently, the variables are obtained by back substitution.
+
+On the other hand, the Gauss Sidel Method is an iterative Scheme, in which an initial guess is made and the solution is refined upon suscessive iterations.
+It is faster than the elimation method, but it's convergability needs to be checked before applying it. 
+
+It has been checked whether the iterative method will converge or diverge using the condition for convergence that the matrix must be diagnolly dominant. If it is found to be converging, the iterative method has been used, else the gauss elimination method has been used.
+This limitation on the iterative scheme can be removed to a great extent by using L-U decomposition. 
+
+Checking for consistency 
+
+If the Gauss Siedel method is applicable, the matrix would be diagnolly dominant and hence there is no need to check for consistency of the system. Otherwise, a check has been placed on the consistency by calculating the determinant of the matrix after triangularing it. If the determinant is extremely small, the system will give no solution or meaningless results.
+
+- errors and their elimination
+Pivoting
+
+It can be seen through simulation of a simple system of equations (even 2 equations are sufficient), that if pivoting is not done, equations with pivot coefficients smaller than around 10^-6 give a wrong output according to the set tolerance of 10^-8, but this analysis varies depending on the number of equations we are looking at.
+
+Pivoting is an extremely useful technique to get accurate solutions. The residual terms reduce significantly when pivoting is used.
+The output, obtained using either iterative method or  has been checked, by calculating the residues and compared against three values of tolerances which are 10^-8, 10^-4, 10^-2.
+
+
+Ill-conditioned Equations
+
+If even upon applying complete pivoting, the pivot term is very small, the system of equations is said to be ill-conditioned.
+The Gauss siedel method, if applicable, provides a much better solution in these cases.
+
+Another kind of ill-conditioned system is possible, when a slight change in coefficients changes the answer by a huge value. The program, in it's current stage does not keep a check for such systems.  
+
+Build up of errors
+
+In the gauss elimination method, errors might build up during triangularizing the matrix, but they are taken care of to a great extent by the pivoting. Another possibility of build-up is during the back substitution steps, in which the errors add up as we move up the matrix calculating the values of x. 
+
+The results are reported in a output file, which gives the method used, the values of variables and fractional tolerances of each equation. If the error is greater than 1 percent, a warning is given to the user that the calculated values may be wrong. Through this, the user can know the equation which is producing a greater error, which will help in further analysis of the situation at hand.
+
+Further Work
+
+The program can be extended further to the tackling of ill-conditioned systems, which result due to errors in input handling. Also, in case there are errors in solutions(which the program gives precisely), the source code may be extended to determine the variables which have the maximum error in their calculations, since it may be the case, that the values of only certain variables are determined incorrectly, especially those which have small diagnol elements after triangularization.
+
+Appendix
+
+Python Code
+
+Instructions for running the code
